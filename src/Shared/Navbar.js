@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { HiUser } from "react-icons/hi";
 
 import { Link, NavLink } from "react-router-dom";
+import { Authcontext } from "../contexts/AuthProvider";
 
 const Navbar = () => {
-  // const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(Authcontext);
   // console.log(user);
-  const user = {};
+  // const user = {};
   return (
     <div className="">
       <div className="navbar bg-inherit">
