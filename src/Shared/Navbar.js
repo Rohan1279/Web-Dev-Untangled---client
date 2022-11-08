@@ -214,7 +214,9 @@ const Navbar = () => {
                   </li>
                   <li>
                     {/* <Link onClick={() => logOut()} to={"/"}> */}
-                    <Link to={"/"}>Logout</Link>
+                    <Link onClick={() => logOut()} to={"/"}>
+                      Logout
+                    </Link>
                   </li>
                 </>
               ) : (
