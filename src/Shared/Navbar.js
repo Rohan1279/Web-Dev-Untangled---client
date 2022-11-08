@@ -9,7 +9,7 @@ const Navbar = () => {
   // console.log(user);
   // const user = {};
   return (
-    <div className="">
+    <div className="px-1">
       <div className="navbar bg-inherit">
         <div className="navbar-start">
           <div className="dropdown">
@@ -31,30 +31,34 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-32 mt-4"
+              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-32 mt-4 text-left"
             >
               <li>
-                <Link className="" to={"/"}>
+                <Link className="px-1 py-2" to={"/"}>
                   Main
                 </Link>
               </li>
               <li>
-                <Link className="" to={"/"}>
+                <Link className="px-1 py-2" to={"/services"}>
                   Services
                 </Link>
               </li>
+              {user?.email && (
+                <>
+                  <li>
+                    <Link className="px-1 py-2" to={"/myreview"}>
+                      My reviews
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="px-1 py-2" to={"/addservice"}>
+                      Add service
+                    </Link>
+                  </li>
+                </>
+              )}
               <li>
-                <Link className="" to={"/"}>
-                  My reviews
-                </Link>
-              </li>
-              <li>
-                <Link className="" to={"/"}>
-                  Add service
-                </Link>
-              </li>
-              <li>
-                <Link className="" to={"/"}>
+                <Link className="px-1 py-2" to={"/blog"}>
                   Blog
                 </Link>
               </li>
@@ -85,31 +89,36 @@ const Navbar = () => {
               Main
             </NavLink>
             <NavLink
-              to={"/"}
+              to={"/services"}
               className={({ isActive }) =>
                 isActive ? "text-xl mx-5 " : "text-xl mx-5"
               }
             >
               <li>Services</li>
             </NavLink>
+            {user?.email && (
+              <>
+                {" "}
+                <NavLink
+                  to={"/myreview"}
+                  className={({ isActive }) =>
+                    isActive ? "text-xl mx-5 " : "text-xl mx-5"
+                  }
+                >
+                  <li>My reviews</li>
+                </NavLink>
+                <NavLink
+                  to={"/addservice"}
+                  className={({ isActive }) =>
+                    isActive ? "text-xl mx-5 " : "text-xl mx-5"
+                  }
+                >
+                  <li>Add service</li>
+                </NavLink>
+              </>
+            )}
             <NavLink
-              to={"/"}
-              className={({ isActive }) =>
-                isActive ? "text-xl mx-5 " : "text-xl mx-5"
-              }
-            >
-              <li>My reviews</li>
-            </NavLink>
-            <NavLink
-              to={"/"}
-              className={({ isActive }) =>
-                isActive ? "text-xl mx-5 " : "text-xl mx-5"
-              }
-            >
-              <li>Add service</li>
-            </NavLink>
-            <NavLink
-              to={"/"}
+              to={"/blog"}
               className={({ isActive }) =>
                 isActive ? "text-xl mx-5 " : "text-xl mx-5"
               }
@@ -177,7 +186,7 @@ const Navbar = () => {
           <div className="dropdown dropdown-end ">
             <label
               tabIndex={0}
-              className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom"
+              className="avatar tooltip tooltip-bottom"
               data-tip={`${
                 user?.displayName ? user.displayName : "Please, login"
               }`}
@@ -189,7 +198,7 @@ const Navbar = () => {
                       src={user.photoURL}
                       alt=""
                       className="tooltip tooltip-bottom"
-                      data-tip="adsa"
+                      data-tip=""
                     />
                   </>
                 ) : (
