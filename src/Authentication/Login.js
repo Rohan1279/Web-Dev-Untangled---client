@@ -1,7 +1,7 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Authcontext } from "../contexts/AuthProvider";
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
@@ -20,6 +20,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        form.reset();
       })
       .catch((err) => console.log(err));
   };
@@ -37,10 +38,10 @@ const Login = () => {
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
+            <h1 className="text-3xl font-bold">Login now!</h1>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-3xl shadow-2xl bg-base-100">
-            <form onSubmit={handleLogin} className="card-body w-96">
+          <div className="card flex-shrink-0 w-full max-w-3xl shadow-2xl bg-base-100 py-8">
+            <form onSubmit={handleLogin} className="card-body w-96 ">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -58,15 +59,21 @@ const Login = () => {
                 </label>
                 <input
                   type="text"
-                  name="passoword"
+                  name="password"
                   placeholder="password"
                   className="input input-bordered"
                 />
               </div>
               <div className="divider ">OR</div>
               <div className="flex  mx-auto gap-x-10">
-                <FaGoogle onClick={() => handleAuthenticate(googleProvider)} />
-                <FaGithub onClick={() => handleAuthenticate(githubProvider)} />
+                <FaGoogle
+                  className="text-4xl text-white bg-gray-500 p-2 rounded-full"
+                  onClick={() => handleAuthenticate(googleProvider)}
+                />
+                <FaGithub
+                  className="text-4xl text-white bg-gray-500 p-2 rounded-full"
+                  onClick={() => handleAuthenticate(githubProvider)}
+                />
               </div>
               <div className="form-control mt-6">
                 <input
@@ -76,6 +83,12 @@ const Login = () => {
                 />
               </div>
             </form>
+            <p className=" text-center">
+              New to Genius Car?{" "}
+              <Link to={"/register"} className="text-orange-600 font-bold">
+                Sign Up
+              </Link>
+            </p>
           </div>
         </div>
       </div>

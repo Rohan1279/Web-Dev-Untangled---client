@@ -174,7 +174,7 @@ const Navbar = () => {
             </>
           )}
 
-          <div className="dropdown dropdown-end">
+          <div className="dropdown dropdown-end ">
             <label
               tabIndex={0}
               className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom"
@@ -213,7 +213,6 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    {/* <Link onClick={() => logOut()} to={"/"}> */}
                     <Link onClick={() => logOut()} to={"/"}>
                       Logout
                     </Link>
