@@ -1,0 +1,45 @@
+[
+  {
+    "title": "How To Use And Write Express Middleware",
+    "image": "https://miro.medium.com/max/642/1*kMNzu4zx40QvwQUWa9dCOw.png",
+    "description": "Middleware is an often misunderstood topic since it sounds and appears very complicated, but in reality middleware is actually really straightforward. The entire idea of middleware is to execute some code before the controller action that sends the response and after the server gets the request from the client. Essentially it is code that executes in the middle of your request, hence the name middleware. Before I get too in depth on the details of middleware, though, I want to setup a basic Express server with two routes.",
+    "price": "19",
+    "rating": 4.5
+  },
+
+  {
+    "title": "Learn patterns for writing clean code with Python",
+    "image": "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210506203255/Best-Practices-to-Write-Clean-Python-Code.png",
+    "description": "Clean code is a set of rules and principles that helps to keep our code readable, maintainable, and extendable. It's one of the most important aspects of writing quality software. We (developers) spend way more time reading the code than actually writing it, which is why it's important that we write good code.Writing code is easy, but writing good, clean code is hard.The code we write should be simple, expressive, and free from more than a few duplicates. Expressive code means that even though we're just providing instructions to a computer, it should still be readable and clearly communicate its intent when read by humans.",
+    "price": "19",
+    "rating": 4.4
+  },
+  {
+    "title": "How To Learn Any Topic Fast",
+    "image": "https://i.ytimg.com/vi/rA2XHWM__yE/maxresdefault.jpg",
+    "description": "Web development is one of the quickest moving fields in software development which means there are tons, and I mean tons, of new topics and technologies to learn every year. It is overwhelming having so many new things to learn, but with this simple step by step guide to learning you can confidently and quickly learn any new topic you want.",
+    "price": "9",
+    "rating": 4.3
+  },
+  {
+    "title": "Guard Clauses - The Best Way To Write Complex Conditional Logic",
+    "image": "https://miro.medium.com/max/1400/1*VkY6u7wuucQ_4e6iZl-qxw.png",
+    "description": "Chances are at some point in your programming career you have written massive conditional logic statements with many levels of nested if and else if statements. At first it may seem like a great idea since it perfectly matches the logic you are trying to enforce, but then a month goes by and you need to make changes to that massive conditional block. More than likely it took you a long time to parse and understand the conditional logic since it was full of multiple levels of nesting and your new changes were most likely very prone to errors. It may seem like there is no way around this problem, but that is where guard clauses come in.",
+    "price": "15",
+    "rating": 4.2
+  },
+  {
+    "title": "MongoDB Ultimate Guide",
+    "image": "https://masteringbackend.solomoneseme.com/wp-content/uploads/2021/02/MongoDB-Tutorial-The-Ultimate-Guide-2021-1200x675.png",
+    "description": "MongoDB is a NoSQL document based database. Essentially, all the data in MongoDB is stored in JSON documents that are sorted into a variety of collections based on the type of data. It is one of the most popular NoSQL database options due to its relative ease of use and power. In this article I will be covering a ton of concepts and functions in MongoDB which touch on all the important aspects of MongoDB. MongoDB has tons of methods and complexity, but if you understand everything in this article you have everything you need to work with MongoDB. If you want to ensure you never forget anything MongoDB related you are going to want to download my free MongoDB Cheat Sheet. This cheat sheet includes all the topics from this article along with examples in an easy to digest cheat sheet.",
+    "price": "29",
+    "rating": 4.6
+  },
+  {
+    "title": "Learn Console Methods That Will Revolutionize Debugging For You",
+    "image": "https://i0.wp.com/tech.shaadi.com/wp-content/uploads/2022/07/Untitled.jpg?fit=1448%2C819&ssl=1",
+    "description": "You are probably aware of the console.log method and maybe a few other console methods like console.error and console.dir, but there are actually over 20 console methods available for you to use. Each of these methods has their own use cases and if you use the right method for each use case you will drastically increase the quality of your debugging. Apart from the log() method, the console object provides us with some more useful methods which we can use to boost our productivity and take our debugging skills to the next level. So in this article, we’ll briefly understand many different JavaScript console methods that remain hidden from most developers.",
+    "price": "19",
+    "rating": 4.5
+  }
+]
