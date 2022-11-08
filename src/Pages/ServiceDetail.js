@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 
 const ServiceDetail = () => {
   const serviceData = useLoaderData();
-  console.log(serviceData);
+  const { _id, title, image, description, price, rating } = serviceData;
 
   return <div></div>;
 };
