@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Authcontext } from "../contexts/AuthProvider";
 import ServiceCard from "../Shared/ServiceCard";
 
 const Home = () => {
@@ -8,7 +9,7 @@ const Home = () => {
     fetch("http://localhost:5000/")
       .then((res) => res.json())
       .then((data) => setServices(data));
-  }, [services]);
+  }, []);
 
   return (
     <div>
