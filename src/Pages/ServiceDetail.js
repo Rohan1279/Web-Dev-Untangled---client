@@ -1,20 +1,26 @@
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { Authcontext } from "../contexts/AuthProvider";
 import ServiceReviews from "./ServiceReview";
 
 const ServiceDetail = () => {
+  const location = useLocation();
   const [review, setReview] = useState({});
   const [allreviews, setAllreviews] = useState([]);
   const serviceData = useLoaderData();
   const { _id, title, image, description, price, rating } = serviceData;
   const { user } = useContext(Authcontext);
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch(`http://localhost:5000/reviews?service_id=${_id}`)
       .then((res) => res.json())
-      .then((data) => setAllreviews(data));
-  }, [allreviews]);
+      .then((data) => {
+        console.log(data);
+        setAllreviews(data);
+      });
+    return () => {};
+  }, [_id]);
   const handleSubmitReview = (e) => {
     e.preventDefault();
     fetch("http://localhost:5000/reviews", {
@@ -63,37 +69,44 @@ const ServiceDetail = () => {
         </div>
       </div>
 
-      <ServiceReviews allreviews={allreviews} />
+      <form className="grid grid-cols-6 px-10" onSubmit={handleSubmitReview}>
+        {user && user?.email ? (
+          <>
+            <textarea
+              onChange={handleInputChange}
+              type="text"
+              src=""
+              alt=""
+              name="reviewText"
+              placeholder="your review"
+              className="input input-bordered  mb-5 mr-3 col-span-5 h-24 p-3"
+              required
+            />
+            <input
+              onChange={handleInputChange}
+              type="number"
+              src=""
+              alt=""
+              placeholder="rating"
+              name="serviceRating"
+              className="input input-bordered mb-5 text-center"
+              required
+            />
 
-      <form className="grid grid-cols-6" onSubmit={handleSubmitReview}>
-        <textarea
-          onChange={handleInputChange}
-          type="text"
-          src=""
-          alt=""
-          name="reviewText"
-          placeholder="your review"
-          className="input input-bordered  mb-5 mr-3 col-span-5 h-24 p-3"
-          required
-        />
-        <input
-          onChange={handleInputChange}
-          type="number"
-          src=""
-          alt=""
-          placeholder="rating"
-          name="serviceRating"
-          className="input input-bordered mb-5 text-center"
-          required
-        />
-        <input
-          type="submit"
-          value="Submit review"
-          className={`btn btn-accent btn-outline col-span-full w-36 mx-auto  ${
-            user?.email ? "" : "btn-disabled"
-          }`}
-        />
+            <button className="btn btn-outline col-span-full mx-auto">
+              <FaPlus className="mr-3" /> Add review
+            </button>
+          </>
+        ) : (
+          <div className="col-span-full ">
+            <p className="text-xl text-red-300">Please login to add a review</p>
+            <Link to={"/login"}>
+              <button className="btn my-5">login</button>
+            </Link>
+          </div>
+        )}
       </form>
+      <ServiceReviews allreviews={allreviews} />
     </div>
   );
 };
