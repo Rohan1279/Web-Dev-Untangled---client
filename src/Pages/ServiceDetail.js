@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { Authcontext } from "../contexts/AuthProvider";
+import ServiceReview from "./ServiceReview";
 
 const ServiceDetail = () => {
   const serviceData = useLoaderData();
   const { _id, title, image, description, price, rating } = serviceData;
+  const { user } = useContext(Authcontext);
 
   return (
     <div>
@@ -20,6 +23,32 @@ const ServiceDetail = () => {
           </div>
         </div>
       </div>
+      <ServiceReview />
+      <form className="grid grid-cols-6">
+        <textarea
+          type="text"
+          src=""
+          alt=""
+          placeholder="your review"
+          className="input input-bordered  mb-5 mr-3 col-span-5 h-24 p-3
+        "
+        />
+        <input
+          type="number"
+          src=""
+          alt=""
+          placeholder="rating"
+          className="input input-bordered mb-5 text-center
+        "
+        />
+        <input
+          type="submit"
+          value="Submit review"
+          className={`btn btn-accent btn-outline col-span-full w-36 mx-auto  ${
+            user?.email ? "" : "btn-disabled"
+          }`}
+        />
+      </form>
     </div>
   );
 };
