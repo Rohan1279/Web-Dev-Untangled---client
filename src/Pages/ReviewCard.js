@@ -2,7 +2,7 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 
 const ReviewCard = ({ allreview }) => {
-  const { reviewText, serviceRating, user_name, user_photoURL } =
+  const { reviewText, serviceRating, date, user_name, user_photoURL } =
     allreview;
   return (
     <div className="container flex flex-col w-full p-6 mx-auto my-3 divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
@@ -17,7 +17,7 @@ const ReviewCard = ({ allreview }) => {
           </div>
           <div>
             <h4 className="font-bold">{user_name}</h4>
-            <span className="text-xs dark:text-gray-400">2 days ago</span>
+            <span className="text-xs dark:text-gray-400">{date}</span>
           </div>
         </div>
         <div className="flex items-center space-x-2 dark:text-yellow-500">

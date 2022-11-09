@@ -5,15 +5,24 @@ const MyReview = () => {
   const [userReview, setUserReview] = useState([]);
   const { user } = useContext(Authcontext);
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user.email}`)
+    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setUserReview(data);
       });
-  }, []);
+  }, [user?.email]);
   return (
     <div>
-      <h2>My review page</h2>
+      {userReview.length === 0 ? (
+        <p>No reviews were added</p>
+      ) : (
+        <>
+          {" "}
+          <div>
+            <h2>Reviews found: {userReview.length}</h2>
+          </div>
+        </>
+      )}
     </div>
   );
 };
