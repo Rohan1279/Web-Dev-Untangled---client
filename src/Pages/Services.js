@@ -7,7 +7,6 @@ const Services = () => {
 
   return (
     <div>
-      <h2>Services Page</h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 ">
         {services.map((service) => (
           <ServiceCard key={service._id} service={service} />
