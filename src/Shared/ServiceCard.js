@@ -13,7 +13,7 @@ const ServiceCard = ({ service }) => {
           </PhotoView>
         </PhotoProvider> */}
 
-        <img src={image} alt="Shoes" className="" />
+        <img src={image} alt="service_photo" className="" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
