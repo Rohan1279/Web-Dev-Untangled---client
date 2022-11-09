@@ -3,12 +3,10 @@ import { useLoaderData } from "react-router-dom";
 import { Authcontext } from "../contexts/AuthProvider";
 import { FaPlus } from "react-icons/fa";
 
-const ServiceReview = () => {
-  const [review, setReview] = useState({});
+const ServiceReviews = () => {
   const serviceData = useLoaderData();
   const { user } = useContext(Authcontext);
 
-  
   return (
     <div className="card w-full bg-base-100 shadow-xl my-6 px-7">
       <div className="flex justify-between items-center">
@@ -18,10 +16,14 @@ const ServiceReview = () => {
         </button>
       </div>
       <div className="my-5">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse culpa eos ipsum, labore odio eius maiores provident. Veritatis, provident dolores.</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse culpa
+          eos ipsum, labore odio eius maiores provident. Veritatis, provident
+          dolores.
+        </p>
       </div>
     </div>
   );
 };
 
-export default ServiceReview;
+export default ServiceReviews;
