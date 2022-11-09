@@ -2,8 +2,10 @@ import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Authcontext } from "../contexts/AuthProvider";
 import { FaPlus } from "react-icons/fa";
+import ReviewCard from "./ReviewCard";
 
-const ServiceReviews = () => {
+const ServiceReviews = ({ allreviews }) => {
+  console.log(allreviews);
   const serviceData = useLoaderData();
   const { user } = useContext(Authcontext);
 
@@ -15,12 +17,10 @@ const ServiceReviews = () => {
           <FaPlus className="mr-3" /> Add review
         </button>
       </div>
-      <div className="my-5">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse culpa
-          eos ipsum, labore odio eius maiores provident. Veritatis, provident
-          dolores.
-        </p>
+      <div className="my-5 w-full">
+        {allreviews.map((allreview) => (
+          <ReviewCard allreview={allreview} key={allreview._id} />
+        ))}
       </div>
     </div>
   );

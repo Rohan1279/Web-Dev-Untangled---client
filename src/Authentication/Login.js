@@ -66,7 +66,7 @@ const Login = () => {
               <div className="divider ">OR</div>
               <div className="flex  mx-auto gap-x-10">
                 <FaGoogle
-                  className="text-4xl text-white bg-gray-500 p-2 rounded-full"
+                  className="text-4xl text-white bg-gray-500 p-2 rounded-full active:p-3 transition-all"
                   onClick={() => handleAuthenticate(googleProvider)}
                 />
                 <FaGithub

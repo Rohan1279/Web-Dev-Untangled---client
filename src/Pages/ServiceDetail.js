@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 import { Authcontext } from "../contexts/AuthProvider";
@@ -6,11 +6,15 @@ import ServiceReviews from "./ServiceReview";
 
 const ServiceDetail = () => {
   const [review, setReview] = useState({});
+  const [allreviews, setAllreviews] = useState([]);
   const serviceData = useLoaderData();
   const { _id, title, image, description, price, rating } = serviceData;
   const { user } = useContext(Authcontext);
-  const { displayName, email, photoURL } = user;
-
+  useEffect(() => {
+    fetch("http://localhost:5000/reviews")
+      .then((res) => res.json())
+      .then((data) => setAllreviews(data));
+  }, [allreviews]);
   const handleSubmitReview = (e) => {
     e.preventDefault();
     fetch("http://localhost:5000/reviews", {
@@ -25,7 +29,6 @@ const ServiceDetail = () => {
         console.log(data);
         if (data.acknowledged) {
           toast.success("Review added successfully");
-          console.log(data);
           e.target.reset();
         }
       });
@@ -34,9 +37,9 @@ const ServiceDetail = () => {
     const value = e.target.value;
     const field = e.target.name;
     const newReview = {
-      user_email: email,
-      user_name: displayName,
-      user_photoURL: photoURL,
+      user_email: user?.email,
+      user_name: user?.displayName,
+      user_photoURL: user?.photoURL,
       service_id: _id,
       service_name: title,
       ...review,
@@ -59,7 +62,9 @@ const ServiceDetail = () => {
           </div>
         </div>
       </div>
-      <ServiceReviews />
+
+      <ServiceReviews allreviews={allreviews} />
+
       <form className="grid grid-cols-6" onSubmit={handleSubmitReview}>
         <textarea
           onChange={handleInputChange}
