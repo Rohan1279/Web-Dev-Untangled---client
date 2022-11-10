@@ -14,7 +14,7 @@ const ServiceReviews = ({ allreviews }) => {
         <h2 className="text-3xl text-left">Customer reviews</h2>
       </div>
       <div className="my-5 w-full">
-        {allreviews.map((allreview) => (
+        {allreviews?.map((allreview) => (
           <ReviewCard allreview={allreview} key={allreview._id} />
         ))}
       </div>

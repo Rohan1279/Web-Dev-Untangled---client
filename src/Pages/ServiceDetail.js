@@ -13,7 +13,8 @@ const ServiceDetail = () => {
   const { _id, title, image, description, price, rating } = serviceData;
   const { user } = useContext(Authcontext);
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?service_id=${_id}`)
+    // fetch(`http://localhost:5000/reviews?service_id=${_id}`)
+    fetch(`http://localhost:5000/reviews/${_id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -44,7 +45,7 @@ const ServiceDetail = () => {
   };
   const handleInputChange = (e) => {
     const date = new Date();
-    
+
     let day = date.getDate();
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
@@ -110,7 +111,9 @@ const ServiceDetail = () => {
           </>
         ) : (
           <div className="col-span-full ">
-            <p className="text-xl text-red-300">Please login to add a review</p>
+            <p className="text-xl text-red-300">
+              Please login to add your review
+            </p>
             <Link to={"/login"}>
               <button className="btn my-5">login</button>
             </Link>

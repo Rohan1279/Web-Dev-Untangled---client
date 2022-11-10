@@ -6,14 +6,21 @@ import { Helmet } from "react-helmet-async";
 
 const MyReview = () => {
   const [userReviews, setUserReviews] = useState([]);
-  const { user } = useContext(Authcontext);
+  const { user, logOut } = useContext(Authcontext);
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("user-token")}`,
+      },
+    })
+      .then((res) => {
+        return res.json();
+      })
       .then((data) => {
+        console.log(data);
         setUserReviews(data);
       });
-  }, [user?.email]);
+  }, [user?.email, logOut, setUserReviews]);
   const handleDeleteReview = (id) => {
     const proceed = window.confirm("Delete the review?");
     if (proceed) {
@@ -60,13 +67,12 @@ const MyReview = () => {
       <Helmet>
         <title>My reviews</title>
       </Helmet>
-      {userReviews.length === 0 ? (
+      {userReviews?.length === 0 ? (
         <p className="text-3xl my-5">No reviews were added</p>
       ) : (
         <>
           {" "}
           <div>
-            <h2>Reviews found: {userReviews.length}</h2>
             <div className="overflow-x-auto">
               <table className="table w-full">
                 <thead>
@@ -78,7 +84,7 @@ const MyReview = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {userReviews.map((userReview) => (
+                  {userReviews?.map((userReview) => (
                     <ReviewRow
                       key={userReview._id}
                       userReview={userReview}

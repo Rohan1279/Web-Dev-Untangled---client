@@ -8,8 +8,8 @@ const ReviewRow = ({ userReview, handleDeleteReview, handleUpdateReview }) => {
 
   return (
     <tr className="">
-      {/* <td>{service_name}</td> */}
-      <td>{_id}</td>
+      <td>{service_name}</td>
+      {/* <td>{_id}</td> */}
       <td>{reviewText}</td>
       <td>{date}</td>
       <td className="flex justify-center items-center">
