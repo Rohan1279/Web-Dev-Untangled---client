@@ -12,7 +12,6 @@ const ServiceReviews = ({ allreviews }) => {
     <div className="card w-full bg-base-100 shadow-xl my-6 px-7">
       <div className="flex justify-between items-center">
         <h2 className="text-3xl text-left">Customer reviews</h2>
-       
       </div>
       <div className="my-5 w-full">
         {allreviews.map((allreview) => (

@@ -44,10 +44,12 @@ const ServiceDetail = () => {
   };
   const handleInputChange = (e) => {
     const date = new Date();
+    
     let day = date.getDate();
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
     let currentDate = `${day}-${month}-${year}`;
+
     const value = e.target.value;
     const field = e.target.name;
     const newReview = {
