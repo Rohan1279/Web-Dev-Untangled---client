@@ -28,13 +28,16 @@ const Register = () => {
           email: user.email,
         };
         //get jwt token
-        fetch("http://localhost:5000/jwt", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(currentUser),
-        })
+        fetch(
+          "https://b6a11-service-review-server-side-rohan1279.vercel.app/jwt",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(currentUser),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

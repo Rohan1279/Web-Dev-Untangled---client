@@ -8,11 +8,14 @@ const MyReview = () => {
   const [userReviews, setUserReviews] = useState([]);
   const { user, logOut } = useContext(Authcontext);
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("user-token")}`,
-      },
-    })
+    fetch(
+      `https://b6a11-service-review-server-side-rohan1279.vercel.app/reviews?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("user-token")}`,
+        },
+      }
+    )
       .then((res) => {
         return res.json();
       })
@@ -24,9 +27,12 @@ const MyReview = () => {
   const handleDeleteReview = (id) => {
     const proceed = window.confirm("Delete the review?");
     if (proceed) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://b6a11-service-review-server-side-rohan1279.vercel.app/reviews/${id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {
@@ -40,13 +46,16 @@ const MyReview = () => {
     }
   };
   const handleUpdateReview = (id, updatedReview) => {
-    fetch(`http://localhost:5000/reviews/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ updatedReview: updatedReview }),
-    })
+    fetch(
+      `https://b6a11-service-review-server-side-rohan1279.vercel.app/reviews/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ updatedReview: updatedReview }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

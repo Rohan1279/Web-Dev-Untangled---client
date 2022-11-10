@@ -13,8 +13,10 @@ const ServiceDetail = () => {
   const { _id, title, image, description, price, rating } = serviceData;
   const { user } = useContext(Authcontext);
   useEffect(() => {
-    // fetch(`http://localhost:5000/reviews?service_id=${_id}`)
-    fetch(`http://localhost:5000/reviews/${_id}`)
+    // fetch(`https://b6a11-service-review-server-side-rohan1279.vercel.app/reviews?service_id=${_id}`)
+    fetch(
+      `https://b6a11-service-review-server-side-rohan1279.vercel.app/reviews/${_id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -24,13 +26,16 @@ const ServiceDetail = () => {
   }, [_id]);
   const handleSubmitReview = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/reviews", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(review),
-    })
+    fetch(
+      "https://b6a11-service-review-server-side-rohan1279.vercel.app/reviews",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(review),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

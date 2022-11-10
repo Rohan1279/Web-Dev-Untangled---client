@@ -10,13 +10,16 @@ const AddService = () => {
   const photoRef = useRef("");
   const handleAddService = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/services", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(service),
-    })
+    fetch(
+      "https://b6a11-service-review-server-side-rohan1279.vercel.app/services",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(service),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
