@@ -16,7 +16,7 @@ const ServiceCard = ({ service }) => {
         </PhotoProvider>
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{title}</h2>
+        <h2 className="card-title mx-auto">{title}</h2>
         <p>{description.slice(0, 100)}...</p>
         <div className="card-actions justify-between items-center">
           <div className="text-center">

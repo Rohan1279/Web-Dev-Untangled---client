@@ -38,8 +38,9 @@ const AddService = () => {
     nameRef.current.innerText = newService?.name || "Name";
     priceRef.current.innerText = newService?.price || "";
     descriptionRef.current.innerText = newService?.description || "";
-    photoRef.current.src =
-    newService?.image ? newService.image : "https://placeimg.com/400/225/arch";
+    photoRef.current.src = newService?.image
+      ? newService.image
+      : "https://placeimg.com/400/225/arch";
   };
 
   return (
@@ -77,7 +78,7 @@ const AddService = () => {
               onChange={handleInputChange}
               type="text"
               placeholder="service name"
-              name="name"
+              name="title"
               className="input input-bordered  m-2"
             />
 
