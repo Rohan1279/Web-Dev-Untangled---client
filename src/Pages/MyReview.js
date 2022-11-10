@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Authcontext } from "../contexts/AuthProvider";
 import ReviewRow from "./ReviewRow";
+import { Helmet } from "react-helmet-async";
 
 const MyReview = () => {
   const [userReviews, setUserReviews] = useState([]);
@@ -56,6 +57,9 @@ const MyReview = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>My reviews</title>
+      </Helmet>
       {userReviews.length === 0 ? (
         <p className="text-3xl my-5">No reviews were added</p>
       ) : (

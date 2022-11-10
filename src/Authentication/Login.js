@@ -3,6 +3,8 @@ import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Authcontext } from "../contexts/AuthProvider";
+import { Helmet } from "react-helmet-async";
+
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 const Login = () => {
@@ -34,6 +36,9 @@ const Login = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-left">

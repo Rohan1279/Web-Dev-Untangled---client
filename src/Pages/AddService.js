@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const AddService = () => {
   const [service, setService] = useState({});
@@ -40,6 +41,9 @@ const AddService = () => {
 
   return (
     <div className=" max-h-screen">
+      <Helmet>
+        <title>Add Service</title>
+      </Helmet>
       <div className="lg:flex h-screen justify-center items-center">
         <div className="w-1/3 h-96">
           <div className="card card-compact w-80 h-full bg-base-100 shadow-xl mx-auto">
@@ -105,4 +109,3 @@ const AddService = () => {
 };
 
 export default AddService;
-
