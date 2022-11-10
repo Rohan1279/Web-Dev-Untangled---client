@@ -33,7 +33,10 @@ const ServiceDetail = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        console.log(review);
         if (data.acknowledged) {
+          const newReviews = [review, ...allreviews];
+          setAllreviews(newReviews);
           toast.success("Review added successfully");
           e.target.reset();
         }

@@ -32,8 +32,6 @@ const MyReview = () => {
     }
   };
   const handleUpdateReview = (id, updatedReview) => {
-    console.log("inside update");
-    console.log(updatedReview);
     fetch(`http://localhost:5000/reviews/${id}`, {
       method: "PATCH",
       headers: {
@@ -43,11 +41,17 @@ const MyReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        const remainingReviews = userReviews.filter(userReview=> userReview._id !== id)
-        const reviewToUpdate = userReviews.find(userReview=> userReview._id === id)
-        reviewToUpdate.reviewText = updatedReview;
-        const newUserReviews  = [reviewToUpdate, ...remainingReviews]
-        setUserReviews(newUserReviews)
+        if (data.modifiedCount > 0) {
+          const remainingReviews = userReviews.filter(
+            (userReview) => userReview._id !== id
+          );
+          const reviewToUpdate = userReviews.find(
+            (userReview) => userReview._id === id
+          );
+          reviewToUpdate.reviewText = updatedReview;
+          const newUserReviews = [reviewToUpdate, ...remainingReviews];
+          setUserReviews(newUserReviews);
+        }
       });
   };
   return (
