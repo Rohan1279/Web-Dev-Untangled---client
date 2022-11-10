@@ -53,7 +53,7 @@ const Home = () => {
           <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
             <h1 className="text-5xl font-bold leading-none sm:text-6xl">
               Learnings
-              <span className="dark:text-violet-400">Made</span>Easy write in
+              <span className="dark:text-violet-400">Made</span>Easy right in
               front
             </h1>
             <p className="mt-6 mb-8 text-lg sm:mb-12">

@@ -39,7 +39,7 @@ const AddService = () => {
     priceRef.current.innerText = newService?.price || "";
     descriptionRef.current.innerText = newService?.description || "";
     photoRef.current.src =
-      newService?.photoURL || "https://placeimg.com/400/225/arch";
+    newService?.image ? newService.image : "https://placeimg.com/400/225/arch";
   };
 
   return (
@@ -92,7 +92,7 @@ const AddService = () => {
               onChange={handleInputChange}
               type="text"
               placeholder="photo url"
-              name="photoURL"
+              name="image"
               className="input input-bordered m-2 col-span-full"
             />
             <textarea
