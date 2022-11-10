@@ -14,7 +14,6 @@ const MyReview = () => {
       });
   }, [user?.email]);
   const handleDeleteReview = (id) => {
-    console.log(id);
     const proceed = window.confirm("Delete the review?");
     if (proceed) {
       fetch(`http://localhost:5000/reviews/${id}`, {
@@ -32,10 +31,29 @@ const MyReview = () => {
         });
     }
   };
+  const handleUpdateReview = (id, updatedReview) => {
+    console.log("inside update");
+    console.log(updatedReview);
+    fetch(`http://localhost:5000/reviews/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ updatedReview: updatedReview }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const remainingReviews = userReviews.filter(userReview=> userReview._id !== id)
+        const reviewToUpdate = userReviews.find(userReview=> userReview._id === id)
+        reviewToUpdate.reviewText = updatedReview;
+        const newUserReviews  = [reviewToUpdate, ...remainingReviews]
+        setUserReviews(newUserReviews)
+      });
+  };
   return (
     <div>
       {userReviews.length === 0 ? (
-        <p>No reviews were added</p>
+        <p className="text-3xl my-5">No reviews were added</p>
       ) : (
         <>
           {" "}
@@ -57,6 +75,7 @@ const MyReview = () => {
                       key={userReview._id}
                       userReview={userReview}
                       handleDeleteReview={handleDeleteReview}
+                      handleUpdateReview={handleUpdateReview}
                     />
                   ))}
                 </tbody>
