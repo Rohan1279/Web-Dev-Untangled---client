@@ -31,6 +31,7 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
   const logOut = () => {
+    localStorage.removeItem("user-token");
     return signOut(auth);
   };
   useEffect(() => {

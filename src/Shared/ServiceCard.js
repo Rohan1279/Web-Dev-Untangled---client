@@ -8,12 +8,18 @@ const ServiceCard = ({ service }) => {
     <div className="card card-compact w-80 bg-base-100 shadow-xl mx-auto">
       <figure className="max-w-xl max-h-52 ">
         {/* <PhotoProvider>
-          <PhotoView src={image} >
-            <img src={image} alt="" />
+          <PhotoView src={image}>
+            <img src={image}  alt=""  />
           </PhotoView>
         </PhotoProvider> */}
-
-        <img src={image} alt="service_photo" className="" />
+        <PhotoProvider>
+          <div className="foo">
+            <PhotoView src={image}>
+              <img src={image} alt="" />
+            </PhotoView>
+          </div>
+        </PhotoProvider>
+        {/* <img src={image} alt="service_photo" className="" /> */}
       </figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>

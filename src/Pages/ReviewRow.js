@@ -54,27 +54,6 @@ const ReviewRow = ({ userReview, handleDeleteReview, handleUpdateReview }) => {
             </div>
           </div>
         </div>
-
-        {/* <div className="modal" id="my-modal-2">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg text-center">Edit your review</h3>
-            <input
-              className="p-4 my-5 text-center w-full  border-b-2 bg-inherit"
-              //   defaultValue={`${reviewText}`}
-              onChange={(e) => setupdatedReview(e.target.value)}
-            ></input>
-            <div className="modal-action">
-              <a
-                // onClick={() => handleUpdateReview(_id, updatedReview)}
-                onClick={() => demoFunc(_id)}
-                href="#"
-                className="btn mx-auto"
-              >
-                Update
-              </a>
-            </div>
-          </div>
-        </div> */}
         {/* modal ends */}
         <div className="divider lg:divider-horizontal"></div>
         <FaTrash
