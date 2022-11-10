@@ -21,7 +21,9 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         const user = result.user;
+
         form.reset();
+        navigate(from, { replace: true });
       })
       .catch((err) => console.log(err));
   };
@@ -35,7 +37,7 @@ const Login = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div>
+    <div >
       <Helmet>
         <title>Login</title>
       </Helmet>

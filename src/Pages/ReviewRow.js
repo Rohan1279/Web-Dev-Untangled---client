@@ -6,9 +6,6 @@ const ReviewRow = ({ userReview, handleDeleteReview, handleUpdateReview }) => {
   const { _id, date, reviewText, service_name } = userReview;
   const [updatedReview, setupdatedReview] = useState(reviewText);
 
-  const demoFunc = (id) => {
-    console.log(id);
-  };
   return (
     <tr className="">
       {/* <td>{service_name}</td> */}
