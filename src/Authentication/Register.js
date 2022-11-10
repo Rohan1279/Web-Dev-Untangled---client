@@ -9,7 +9,8 @@ const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
 const Register = () => {
-  const { createUser, authenticateWithProvider } = useContext(Authcontext);
+  const { loading, createUser, authenticateWithProvider } =
+    useContext(Authcontext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -56,6 +57,15 @@ const Register = () => {
       <Helmet>
         <title>Register</title>
       </Helmet>
+      {loading && (
+        <>
+          <div className="flex items-center justify-center space-x-2 my-10">
+            <div className="w-4 h-4 rounded-full animate-pulse dark:bg-white-400"></div>
+            <div className="w-4 h-4 rounded-full animate-pulse dark:bg-white-400"></div>
+            <div className="w-4 h-4 rounded-full animate-pulse dark:bg-white-400"></div>
+          </div>
+        </>
+      )}
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-left">

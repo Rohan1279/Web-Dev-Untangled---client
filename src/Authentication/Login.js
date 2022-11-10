@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 const Login = () => {
-  const { login, authenticateWithProvider } = useContext(Authcontext);
+  const { loading, login, authenticateWithProvider } = useContext(Authcontext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -71,6 +71,15 @@ const Login = () => {
       <Helmet>
         <title>Login</title>
       </Helmet>
+      {loading && (
+        <>
+          <div className="flex items-center justify-center space-x-2 my-10">
+            <div className="w-4 h-4 rounded-full animate-pulse dark:bg-white-400"></div>
+            <div className="w-4 h-4 rounded-full animate-pulse dark:bg-white-400"></div>
+            <div className="w-4 h-4 rounded-full animate-pulse dark:bg-white-400"></div>
+          </div>
+        </>
+      )}
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-left">

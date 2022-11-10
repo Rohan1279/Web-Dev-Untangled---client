@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet-async";
 
 const Services = () => {
   const services = useLoaderData();
-  console.log(services);
   if (services.length === 0) {
     return (
       <div className="flex items-center justify-center space-x-2 my-10">
